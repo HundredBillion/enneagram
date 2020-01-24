@@ -1,0 +1,2 @@
+class EnneagramNumber < ApplicationRecord
+end

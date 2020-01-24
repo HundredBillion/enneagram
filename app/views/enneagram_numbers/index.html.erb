@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Enneagram Numbers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Enneagram number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enneagram_numbers.each do |enneagram_number| %>
+      <tr>
+        <td><%= enneagram_number.enneagram_number %></td>
+        <td><%= link_to 'Show', enneagram_number %></td>
+        <td><%= link_to 'Edit', edit_enneagram_number_path(enneagram_number) %></td>
+        <td><%= link_to 'Destroy', enneagram_number, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Enneagram Number', new_enneagram_number_path %>
