@@ -1,0 +1,62 @@
+<%= form_with(model: enneagram_score, local: true) do |form| %>
+  <% if enneagram_score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(enneagram_score.errors.count, "error") %> prohibited this enneagram_score from being saved:</h2>
+
+      <ul>
+        <% enneagram_score.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :enneagram_one_score %>
+    <%= form.number_field :enneagram_one_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enneagram_two_score %>
+    <%= form.number_field :enneagram_two_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enneagram_three_score %>
+    <%= form.number_field :enneagram_three_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enneagram_four_score %>
+    <%= form.number_field :enneagram_four_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enneagram_five_score %>
+    <%= form.number_field :enneagram_five_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enneagram_six_score %>
+    <%= form.number_field :enneagram_six_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enneagram_seven_score %>
+    <%= form.number_field :enneagram_seven_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enneagream_eight_score %>
+    <%= form.number_field :enneagream_eight_score %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enneagram_nine_score %>
+    <%= form.number_field :enneagram_nine_score %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  enneagram_one_score: 1
+  enneagram_two_score: 1
+  enneagram_three_score: 1
+  enneagram_four_score: 1
+  enneagram_five_score: 1
+  enneagram_six_score: 1
+  enneagram_seven_score: 1
+  enneagream_eight_score: 1
+  enneagram_nine_score: 1
+
+two:
+  enneagram_one_score: 1
+  enneagram_two_score: 1
+  enneagram_three_score: 1
+  enneagram_four_score: 1
+  enneagram_five_score: 1
+  enneagram_six_score: 1
+  enneagram_seven_score: 1
+  enneagream_eight_score: 1
+  enneagram_nine_score: 1

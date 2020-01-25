@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Enneagram Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Enneagram one score</th>
+      <th>Enneagram two score</th>
+      <th>Enneagram three score</th>
+      <th>Enneagram four score</th>
+      <th>Enneagram five score</th>
+      <th>Enneagram six score</th>
+      <th>Enneagram seven score</th>
+      <th>Enneagream eight score</th>
+      <th>Enneagram nine score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enneagram_scores.each do |enneagram_score| %>
+      <tr>
+        <td><%= enneagram_score.enneagram_one_score %></td>
+        <td><%= enneagram_score.enneagram_two_score %></td>
+        <td><%= enneagram_score.enneagram_three_score %></td>
+        <td><%= enneagram_score.enneagram_four_score %></td>
+        <td><%= enneagram_score.enneagram_five_score %></td>
+        <td><%= enneagram_score.enneagram_six_score %></td>
+        <td><%= enneagram_score.enneagram_seven_score %></td>
+        <td><%= enneagram_score.enneagream_eight_score %></td>
+        <td><%= enneagram_score.enneagram_nine_score %></td>
+        <td><%= link_to 'Show', enneagram_score %></td>
+        <td><%= link_to 'Edit', edit_enneagram_score_path(enneagram_score) %></td>
+        <td><%= link_to 'Destroy', enneagram_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Enneagram Score', new_enneagram_score_path %>
