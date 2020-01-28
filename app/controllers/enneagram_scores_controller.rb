@@ -1,28 +1,37 @@
 class EnneagramScoresController < ApplicationController
   before_action :set_enneagram_score, only: [:show, :edit, :update, :destroy]
 
-  # GET /enneagram_scores
-  # GET /enneagram_scores.json
   def index
-    @enneagram_scores = EnneagramScore.all
+    @enneagram_scores =[]
+    (1..9).each do |number|
+      @enneagram_scores<<EnneagramScore.enneagram_score(number)
+    end
+
+    @enneagram_test_divisor = @enneagram_scores.map(&:to_f).reduce(:+)
+    
+    @enneagram_number_divisor =[]
+    (1..9).each do |number|
+      @enneagram_number_divisor << EnneagramScore.enneagram_max_score(number)
+    end
+   
+    @enneagram_percentages = @enneagram_scores.zip(@enneagram_number_divisor).map{|x,y| ((x/y.to_f)*100).floor(2) }
+    
   end
 
-  # GET /enneagram_scores/1
-  # GET /enneagram_scores/1.json
+
   def show
   end
 
-  # GET /enneagram_scores/new
+
   def new
     @enneagram_score = EnneagramScore.new
   end
 
-  # GET /enneagram_scores/1/edit
+
   def edit
   end
 
-  # POST /enneagram_scores
-  # POST /enneagram_scores.json
+
   def create
     @enneagram_score = EnneagramScore.new(enneagram_score_params)
 
@@ -69,6 +78,6 @@ class EnneagramScoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enneagram_score_params
-      params.require(:enneagram_score).permit(:enneagram_one_score, :enneagram_two_score, :enneagram_three_score, :enneagram_four_score, :enneagram_five_score, :enneagram_six_score, :enneagram_seven_score, :enneagream_eight_score, :enneagram_nine_score)
+      params.require(:enneagram_score).permit(:user_id, :enneagram_one_score, :enneagram_two_score, :enneagram_three_score, :enneagram_four_score, :enneagram_five_score, :enneagram_six_score, :enneagram_seven_score, :enneagram_eight_score, :enneagram_nine_score)
     end
 end

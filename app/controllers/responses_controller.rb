@@ -7,6 +7,7 @@ class ResponsesController < ApplicationController
     @responses = Response.all
   end
 
+
   # GET /responses/1
   # GET /responses/1.json
   def show
@@ -14,6 +15,7 @@ class ResponsesController < ApplicationController
 
   # GET /responses/new
   def new
+    @questions = Question.all.order(:created_at)
     @response = Response.new
   end
 
@@ -24,17 +26,29 @@ class ResponsesController < ApplicationController
   # POST /responses
   # POST /responses.json
   def create
-    @response = Response.new(response_params)
+    responses_saved = true
+    params[:response].each do |response_param|
+      response = Response.new(response_param.permit(:user_id, :question_id, :answer))
+      
+      unless response.save
+        responses_saved = false
+        break
+      end
+    end
 
+    
+    
     respond_to do |format|
-      if @response.save
-        format.html { redirect_to @response, notice: 'Response was successfully created.' }
+      if responses_saved
+        format.html { redirect_to enneagram_scores_path, notice: 'Response was successfully created. Here are your results' }
         format.json { render :show, status: :created, location: @response }
+        
       else
         format.html { render :new }
         format.json { render json: @response.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /responses/1
@@ -61,14 +75,20 @@ class ResponsesController < ApplicationController
     end
   end
 
+  def remove_all
+    Response.delete_all
+    flash[:notice] = "You have removed all results!"
+    redirect_to responses_path
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+   
     def set_response
       @response = Response.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def response_params
-      params.require(:response).permit(:answer, :user_id, :question_id)
+      params.require(:response).permit(:user_id, :question_id, :answer)
     end
+
 end

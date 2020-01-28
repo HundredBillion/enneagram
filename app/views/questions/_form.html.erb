@@ -11,17 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :question %>
-    <%= form.text_field :question %>
+  <div class="form-group">
+    <%= form.text_field :question, placeholder:"Question", class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :enneagram_number_id %>
-    <%= form.text_field :enneagram_number_id %>
+  <div class="form-group">
+    <%= form.text_field :enneagram_number_id, placeholder:"Enneagram Number", class:"form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>

@@ -1,3 +1,23 @@
 // Place all the styles related to the Responses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.enneagram-test{
+  font-family: 'Bebas Neue', cursive;
+
+  .card-text {
+    font-size: 1rem;
+    letter-spacing: 5px;
+  }
+  
+  .slider {
+    width:40%;
+  }
+  
+  h4{
+    letter-spacing: 4px;
+    // width: 60%;
+    margin:auto;
+    width: 60%;
+  }
+
+}  

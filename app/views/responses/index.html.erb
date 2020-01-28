@@ -6,26 +6,29 @@
   <thead>
     <tr>
       <th>Answer</th>
-      <th>User</th>
+     
       <th>Question</th>
-      <th colspan="3"></th>
+    
+      <th>User</th>
+     
     </tr>
   </thead>
 
   <tbody>
     <% @responses.each do |response| %>
-      <tr>
-        <td><%= response.answer %></td>
-        <td><%= response.user_id %></td>
-        <td><%= response.question_id %></td>
-        <td><%= link_to 'Show', response %></td>
-        <td><%= link_to 'Edit', edit_response_path(response) %></td>
-        <td><%= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= response.answer %></td>
+      <td><%= response.question_id %></td>
+      <td><%= response.user_id %></td>
+      <td><%= link_to 'Show', response %></td>
+      <td><%= link_to 'Edit', edit_response_path(response) %></td>
+      <td><%= link_to 'Destroy', response, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Response', new_response_path %>
+<%= link_to "Remove All", remove_all_responses_path, :method => :delete %>
+<br/>
+<%= link_to 'Home', root_path %>
