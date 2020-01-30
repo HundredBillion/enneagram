@@ -78,7 +78,7 @@ class ResponsesController < ApplicationController
   def remove_all
     Response.delete_all
     flash[:notice] = "You have removed all results!"
-    redirect_to responses_path
+    redirect_to root_path
   end
 
   private
