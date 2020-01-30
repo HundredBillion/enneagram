@@ -88,7 +88,7 @@ class ResponsesController < ApplicationController
     end
 
     def response_params
-      params.require(:response).permit(:user_id, :question_id, :answer)
+      params.require(:response).permit(:user_id, :question_id, :answer).merge(user: current_user)
     end
 
 end

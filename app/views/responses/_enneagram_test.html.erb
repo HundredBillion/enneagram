@@ -1,0 +1,33 @@
+<div class="enneagram-test">
+  <%= form_with(model: response, local: true) do |form| %>
+
+    <% @questions.each_with_index do |question, index| %> 
+      <div class="card m-2">
+        <%= fields_for "response[]", response do |response_field| %>
+            <div class="card-head text-center"> 
+              <h4 class="mt-4"><%#= index + 1 %> <%=question.question %></h4>
+              <%= response_field.hidden_field :question_id, value: question.id %>
+            </div>
+            <div class="card-body text-center">
+              <p class="card-text">
+                <%= response_field.label "How much does this describe you?"%>
+              </p>
+              <p>
+                0% <%= response_field.range_field :answer, min:0, max:100, class:"slider"  %> 100%
+              </p>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <br/>
+
+    <div class="d-flex justify-content-center mt-2">
+      <%= form.submit "Show me my type", class:"btn btn-primary calculate-btn" %>
+    </div>  
+  <% end %>
+
+</div>
+
+
+
