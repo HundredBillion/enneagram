@@ -7,7 +7,7 @@
             <div class="card-head text-center"> 
               <h4 class="mt-4"><%#= index + 1 %> <%=question.question %></h4>
               <%= response_field.hidden_field :question_id, value: question.id %>
-              
+              <%= response_field.hidden_field :user_id %> 
             </div>
             <div class="card-body text-center">
               <p class="card-text">

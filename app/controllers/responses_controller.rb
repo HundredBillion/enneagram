@@ -29,15 +29,13 @@ class ResponsesController < ApplicationController
   def create
     responses_saved = true
     params[:response].each do |response_param|
-      response = Response.new(response_param.permit(:user_id, :question_id, :answer))
-      
-      unless response.save
+      @response = Response.new(response_param.permit(:user_id, :question_id, :answer))
+      @response.user_id = current_user.id 
+      unless @response.save
         responses_saved = false
         break
       end
     end
-
-    
     
     respond_to do |format|
       if responses_saved
