@@ -1,19 +1,21 @@
 class EnneagramScoresController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_enneagram_score, only: [:show, :edit, :update, :destroy]
 
   def index
+    @user = current_user
     @enneagram_scores =[]
     (1..9).each do |number|
-      @enneagram_scores<<EnneagramScore.enneagram_score(number)
+      @enneagram_scores<<EnneagramScore.where(user_id:(Response.where(user_id:current_user))).enneagram_score(number)
     end
-
+    
     @enneagram_test_divisor = @enneagram_scores.map(&:to_f).reduce(:+)
     
     @enneagram_number_divisor =[]
     (1..9).each do |number|
-      @enneagram_number_divisor << EnneagramScore.enneagram_max_score(number)
+      @enneagram_number_divisor << EnneagramScore.where(user_id:(Response.where(user_id:current_user))).enneagram_max_score(number)
     end
-   
+    
     @enneagram_percentages = @enneagram_scores.zip(@enneagram_number_divisor).map{|x,y| ((x/y.to_f)*100).floor(2) }
     
   end
@@ -34,7 +36,7 @@ class EnneagramScoresController < ApplicationController
 
   def create
     @enneagram_score = EnneagramScore.new(enneagram_score_params)
-
+    @enneagram_score.user_id = current_user
     respond_to do |format|
       if @enneagram_score.save
         format.html { redirect_to @enneagram_score, notice: 'Enneagram score was successfully created.' }
