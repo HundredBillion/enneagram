@@ -1,9 +1,8 @@
-
-
- <div class="enneagram-test">
+<div class="enneagram-test">
   <%= form_with(model: response, local: true) do |form| %>
     <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
       <div class="row">
+        
         <div class="col-2">
           <div class="user">
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -12,6 +11,7 @@
             </a>
           </div>
         </div>
+
         <div class="col-8">
           <div class="carousel-inner">
             <% @questions.each_with_index do |question, index| %> 
@@ -43,8 +43,7 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-        </div>
-      
+        </div>  
       </div>
     </div>
 
@@ -54,59 +53,9 @@
       <%= form.submit "Show me my type", class:"btn btn-primary calculate-btn" %>
     </div>  
   <% end %>
-
 </div>  
 
 
-
-<br>  
-<br>
-<br>
-<br>
-<br>
-<br>
-<hr>
-
-
- <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
-  <div class="row">
-    <div class="col-2">
-      <div class="user">
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-      </div>
-    </div>
-    <div class="col-8">
-      <div class="carousel-inner">
-        <% @questions.each_with_index do |question, index| %> 
-          <div class=" carousel-item text-center">
-            <h2><%= question.question%></h2>
-            <p>How much does this describe you?</p>
-            0%<input type="range" min="1" max="100" value="50" class="slider-1" id="myRange">100%
-          </div>
-        <%end%>  
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="">
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div> 
-
-
-
-
-<br>
-<br>
-<br>  
-<br>
 <script>
   document.querySelector('.carousel-inner :first-child').classList.add('active');
 </script>
