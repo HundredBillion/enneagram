@@ -26,9 +26,17 @@
                     <p class="card-text">
                       <%= response_field.label "How much does this describe you?"%>
                     </p>
-                    <p>
-                      0% <%= response_field.range_field :answer, min:0, max:100, class:"slider"  %> 100%
-                    </p>
+                    <div class="row">
+                      <div class="col-2">
+                        <p>0%</p>
+                      </div>
+                      <div class="col-8"> 
+                        <%= response_field.range_field :answer, min:0, max:100, class:"slider-1"  %>
+                      </div>
+                      <div class="col-2">
+                       <p>100%</p>
+                      </div>
+                    </div>
                   </div>
                 <% end %>
               </div>
@@ -37,7 +45,7 @@
         </div>
 
         <div class="col-2">
-          <div class="">
+          <div class="user">
             <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
