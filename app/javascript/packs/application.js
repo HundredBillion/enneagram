@@ -10,6 +10,7 @@ require("channels")
 
 import "bootstrap"
 import "../stylesheets/application"
+import "enneagram_test/enneagram_test.js"
 
 document.addEventListener("turbolinks:load",()=>{
   $('[data-toggle="tooltip"]').tooltip()

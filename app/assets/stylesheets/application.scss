@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+ /* remove the default black background color on hover */
+a:hover{
+  background-color:#007bff;
+  border-radius: 5%;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+
+/*  carousel controls */
+.carousel-control-prev,
+.carousel-control-next{
+  background-color:#007bff;
+}
