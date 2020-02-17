@@ -1,26 +1,52 @@
 
+
  <div class="enneagram-test">
   <%= form_with(model: response, local: true) do |form| %>
+    <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
+      <div class="row">
+        <div class="col-2">
+          <div class="user">
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="carousel-inner">
+            <% @questions.each_with_index do |question, index| %> 
+              <div class="carousel-item text-center card">
+                <%= fields_for "response[]", response do |response_field| %>
+                  <div class="card-head text-center"> 
+                    <h4 class="mt-4"><%=question.question %></h4>
+                    <%= response_field.hidden_field :question_id, value: question.id %>
+                    <%= response_field.hidden_field :user_id %> 
+                  </div>
+                  <div class="card-body text-center">
+                    <p class="card-text">
+                      <%= response_field.label "How much does this describe you?"%>
+                    </p>
+                    <p>
+                      0% <%= response_field.range_field :answer, min:0, max:100, class:"slider"  %> 100%
+                    </p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
 
-    <% @questions.each_with_index do |question, index| %> 
-      <div class="card m-2">
-        <%= fields_for "response[]", response do |response_field| %>
-            <div class="card-head text-center"> 
-              <h4 class="mt-4"><%#= index + 1 %> <%=question.question %></h4>
-              <%= response_field.hidden_field :question_id, value: question.id %>
-              <%= response_field.hidden_field :user_id %> 
-            </div>
-            <div class="card-body text-center">
-              <p class="card-text">
-                <%= response_field.label "How much does this describe you?"%>
-              </p>
-              <p>
-                0% <%= response_field.range_field :answer, min:0, max:100, class:"slider"  %> 100%
-              </p>
-            </div>
-        <% end %>
+        <div class="col-2">
+          <div class="">
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      
       </div>
-    <% end %>
+    </div>
 
     <br/>
 
@@ -29,7 +55,8 @@
     </div>  
   <% end %>
 
-</div> 
+</div>  
+
 
 
 <br>  
@@ -40,7 +67,8 @@
 <br>
 <hr>
 
-<div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
+
+ <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
   <div class="row">
     <div class="col-2">
       <div class="user">
@@ -70,7 +98,8 @@
       </div>
     </div>
   </div>
-</div>
+</div> 
+
 
 
 
