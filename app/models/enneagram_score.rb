@@ -1,14 +1,10 @@
 class EnneagramScore < ApplicationRecord
   belongs_to :user
 
+  ## This method is faulty because it does not select for current user. But it's in the model, so I don't have access
+  ## the current user. I'm keeping this method as reference
   def self.enneagram_score(enneagram_number)
     @responses = Response.where(question_id:(Question.where(enneagram_number_id:(enneagram_number)))  )
-    # @responses.each do |response|
-    #   array = []
-    #   array << response.answer
-    #   @score = array.sum
-    # end 
-    # return @score  
     @responses.map{|r| r.answer}.sum
   end
 

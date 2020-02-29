@@ -6,9 +6,14 @@ class EnneagramScoresController < ApplicationController
     @user = current_user
     @enneagram_scores =[]
     (1..9).each do |number|
-      @enneagram_scores<<EnneagramScore.where(user_id:(Response.where(user_id:current_user))).enneagram_score(number)
+      # @enneagram_scores<<EnneagramScore.where(user_id:(Response.where(user_id:current_user))).enneagram_score(number)
+      @enneagram_scores << 
+          (Response.where(user_id:current_user, question_id:(Question.where(enneagram_number_id:number)))).map{|r| r.answer}.sum
+      
     end
     
+    ## This instance variable is not good because it doesn't take into account that there may be an uneven number of enneagram
+    ## questions for a particular number
     @enneagram_test_divisor = @enneagram_scores.map(&:to_f).reduce(:+)
     
     @enneagram_number_divisor =[]
@@ -17,7 +22,7 @@ class EnneagramScoresController < ApplicationController
     end
     
     @enneagram_percentages = @enneagram_scores.zip(@enneagram_number_divisor).map{|x,y| ((x/y.to_f)*100).floor(2) }
-    
+
   end
 
 

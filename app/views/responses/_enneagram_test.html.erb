@@ -3,6 +3,7 @@
     <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
       <div class="row carousel-row align-items-center">
 
+
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleControls" data-slide-to="1"></li>
@@ -79,7 +80,6 @@
           <li data-target="#carouselExampleControls" data-slide-to="73"></li>
           <li data-target="#carouselExampleControls" data-slide-to="74"></li>
         </ol> 
-
         
         <div class="col-2"> 
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -90,6 +90,7 @@
 
         <div class="col-8">
           <div class="carousel-inner">
+
             <% @questions.each_with_index do |question, index| %> 
               <div class="carousel-item text-center card">
                 <%= fields_for "response[]", response do |response_field| %>
