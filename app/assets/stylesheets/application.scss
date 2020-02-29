@@ -15,11 +15,14 @@
  */
 
  /* remove the default black background color on hover */
+a{
+  transition: transform .2s;
+}
 a:hover{
   background-color:rgba(219,114,0,0);
   border-radius: 5%;
   color: rgba(0, 0, 0, 0.7);
-  
+  transform: scale(1.15);
 }
 
 .logo img{
