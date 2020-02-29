@@ -2,7 +2,7 @@ class EnneagramScore < ApplicationRecord
   belongs_to :user
 
   def self.enneagram_score(enneagram_number)
-    @responses = Response.where(question_id:(Question.where(enneagram_number_id:(enneagram_number)))  )
+    @responses = Response.where(user_id:current_user, question_id:(Question.where(enneagram_number_id:(enneagram_number)))  )
     # @responses.each do |response|
     #   array = []
     #   array << response.answer
