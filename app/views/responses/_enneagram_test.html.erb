@@ -108,7 +108,8 @@
                         <p class="card-text">0%</p>
                       </div>
                       <div class="col-8"> 
-                        <%= response_field.range_field :answer, min:0, max:100, class:"slider-1"  %>
+                        <%= response_field.range_field :answer, min:0, max:100, class:"slider-1", id:"question#{index+1}"%>
+                        <p>Value: <span id="question<%=index + 1%>score">50</span>%</p> 
                       </div>
                       <div class="col-2">
                        <p class="card-text">100%</p>
@@ -143,4 +144,14 @@
 
 <script>
   document.querySelector('.carousel-inner :first-child').classList.add('active');
+
+
+  var sliders = document.getElementsByClassName("slider-1");
+
+  for(var i=0; i<(sliders.length); i++) {
+    sliders[i].addEventListener('input', function() {
+      document.getElementById(this.getAttribute('id')+'score').innerText = this.value;
+    });
+  }
+   
 </script>
