@@ -43,15 +43,17 @@
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #4CAF50;
+    background: #db8f00;
+    border-radius: 50%;
     cursor: pointer;
   }
   
   .slider-1::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    background: #4CAF50;
+    background: #db8f00;
     cursor: pointer;
+    border-radius: 50%;
   }
 
   .carousel-row{
@@ -60,6 +62,7 @@
   a.carousel-control-next,
   a.carousel-control-prev{
     height: 40px;
+    background-color: #db8f00;
   }
   .carousel-indicators li{
     background-color: #000;
@@ -69,6 +72,11 @@
     border-top:1px solid transparent;
     border-bottom: 1px solid transparent;
     background-clip: initial;
+  }
+  /*  button controls */
+  .btn-primary{
+    background-color: #db8f00;
+    border-color:#db8f00;
   }
 
 }  
