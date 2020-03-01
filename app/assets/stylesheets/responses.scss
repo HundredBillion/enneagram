@@ -3,12 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .enneagram-test{
   font-family: 'Bebas Neue', cursive;
-
   .card-text {
     font-size: 1rem;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
   }
-  
   .slider {
     width:40%;
   }
@@ -21,7 +19,7 @@
   }
 
   .calculate-btn {
-    font-size:2rem;
+    font-size:1.15rem;
   }
   .slider-1 {
     -webkit-appearance: none;
@@ -83,4 +81,12 @@
     border-color:#db8f00;
   }
 
-}  
+}
+
+@media screen and (max-width: 800px){
+  .enneagram-test .card-text {
+    letter-spacing: 1px;
+    font-size: .88rem;
+  } 
+}
+
