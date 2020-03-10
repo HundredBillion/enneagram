@@ -7,10 +7,10 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("enneagram_test/enneagram_test.js")
 
 import "bootstrap"
 import "../stylesheets/application"
-import "enneagram_test/enneagram_test.js"
 
 document.addEventListener("turbolinks:load",()=>{
   $('[data-toggle="tooltip"]').tooltip()

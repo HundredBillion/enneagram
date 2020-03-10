@@ -8,6 +8,7 @@
     <tr>
       <th scope="col">Question</th>
       <th scope="col">Enneagram number</th>
+      <th scope="col">Number multiplier</th>
       <th scope="col" colspan="3"></th>
     </tr>
   </thead>
@@ -17,6 +18,7 @@
       <tr>
         <td><%= question.question %></td>
         <td><%= question.enneagram_number_id %></td>
+        <td><%= question.number_multiplier %></td>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>

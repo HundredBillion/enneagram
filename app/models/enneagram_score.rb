@@ -9,7 +9,9 @@ class EnneagramScore < ApplicationRecord
   end
 
   def self.enneagram_max_score(enneagram_number)
-    @max_value = (Question.where(enneagram_number_id:(enneagram_number)).count)*100
+    @max_value = 
+              (Question.where(enneagram_number_id:enneagram_number, number_multiplier:1).count)*100 +
+              (Question.where(enneagram_number_id:enneagram_number, number_multiplier:2).count)*200
   end
 
   def self.top_enneagram_score

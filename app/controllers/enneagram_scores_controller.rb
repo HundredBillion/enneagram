@@ -8,10 +8,10 @@ class EnneagramScoresController < ApplicationController
     (1..9).each do |number|
       # @enneagram_scores<<EnneagramScore.where(user_id:(Response.where(user_id:current_user))).enneagram_score(number)
       @enneagram_scores << 
-          (Response.where(user_id:current_user, question_id:(Question.where(enneagram_number_id:number)))).map{|r| r.answer}.sum
+          (Response.where(user_id:current_user, question_id:(Question.where(enneagram_number_id:number)))).map{|r| r.answer * r.question.number_multiplier}.sum
       
     end
-    
+
     ## This instance variable is not good because it doesn't take into account that there may be an uneven number of enneagram
     ## questions for a particular number
     @enneagram_test_divisor = @enneagram_scores.map(&:to_f).reduce(:+)
