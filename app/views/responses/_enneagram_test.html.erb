@@ -93,7 +93,7 @@
 
 
     function showDiv() {
-        const id = document.getElementById("question74");
+        const id = document.getElementById("question<%=Question.last.id%>");
         if (id.offsetWidth > 0 && id.offsetHeight > 0) {
             document.getElementById('calculate-btn').style.opacity = "1";
         }
