@@ -18,8 +18,10 @@
     width: 60%;
   }
 
-  .calculate-btn {
+  #calculate-btn {
     font-size:1.15rem;
+    opacity: 0;
+    transition: opacity 1s;
   }
   .slider-1 {
     -webkit-appearance: none;

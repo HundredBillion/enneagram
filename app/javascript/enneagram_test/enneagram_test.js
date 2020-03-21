@@ -1,15 +1,15 @@
 //select
 
 questions_to_compare = [
-  document.getElementById("question57score").innerHTML,
-  document.getElementById("question58score").innerHTML,
-  document.getElementById("question59score").innerHTML,
-  document.getElementById("question60score").innerHTML,
-  document.getElementById("question61score").innerHTML,
-  document.getElementById("question62score").innerHTML,
-  document.getElementById("question63score").innerHTML,
-  document.getElementById("question64score").innerHTML,
-  document.getElementById("question65score").innerHTML,
+  // document.getElementById("question57score").innerHTML,
+  // document.getElementById("question58score").innerHTML,
+  // document.getElementById("question59score").innerHTML,
+  // document.getElementById("question60score").innerHTML,
+  // document.getElementById("question61score").innerHTML,
+  // document.getElementById("question62score").innerHTML,
+  // document.getElementById("question63score").innerHTML,
+  // document.getElementById("question64score").innerHTML,
+  // document.getElementById("question65score").innerHTML,
 ]
 
 //build
