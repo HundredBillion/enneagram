@@ -1,101 +1,121 @@
 <div class="enneagram-test">
-    <%= form_with(model: response, local: true) do |form| %>
-    <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
-        <div class="row carousel-row align-items-center">
+  <%= form_with(model: response, local: true) do |form| %>
+  <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
+    <div class="row carousel-row align-items-center">
+      <div class="col-md-12">
+        <!-- questionair completeness indictor -->
+        <ol class="carousel-indicators">
+          <% @questions.each_with_index do |question, index| %>
+          <li data-target="#carouselExampleControls" data-slide-to="<%=index%>" id="carousel-indicator"></li>
+          <%end%>
+        </ol>
+        <div class="carousel-inner">
 
-
-
-            <div class="col-md-12">
-                <!-- questionair completeness indictor -->
-                <ol class="carousel-indicators">
-                    <% @questions.each_with_index do |question, index| %>
-                    <li data-target="#carouselExampleControls" data-slide-to="<%=index%>" id="carousel-indicator"></li>
-                    <%end%>
-                </ol>
-                <div class="carousel-inner">
-
-                    <% @questions.each_with_index do |question, index| %>
-                    <div class="carousel-item text-center card">
-                        <%= fields_for "response[]", response do |response_field| %>
-                        <div class="card-head text-center">
-                            <h4 class="mt-4"><%=question.question %></h4>
-                            <%= response_field.hidden_field :question_id, value: question.id %>
-                            <%= response_field.hidden_field :user_id %>
-                        </div>
-                        <div class="card-body text-center">
-                            <p class="card-text">
-                                <%= response_field.label "How much does this describe you?"%>
-                            </p>
-                            <div class="row">
-                                <div class="col-2">
-                                    <p class="card-text">0%</p>
-                                </div>
-                                <div class="col-8">
-                                    <%= response_field.range_field :answer, min:0, max:100, class:"slider-1", id:"question#{index+1}", onclick:"showDiv()"%>
-                                    <p>Value: <span id="question<%=index + 1%>score">50</span>%</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="card-text">100%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <% end %>
-                    </div>
-                    <% end %>
-                </div>
+          <% @questions.each_with_index do |question, index| %>
+          <div class="carousel-item text-center card">
+            <%= fields_for "response[]", response do |response_field| %>
+            <div class="card-head text-center">
+              <h4 class="mt-4"><%=question.question %></h4>
+              <%= response_field.hidden_field :question_id, value: question.id %>
+              <%= response_field.hidden_field :user_id %>
             </div>
-
-        </div>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
+            <div class="card-body text-center">
+              <p class="card-text">
+                <%= response_field.label "How much does this describe you?"%>
+              </p>
+              <div class="row">
+                <div class="col-2">
+                  <p class="card-text">0%</p>
                 </div>
-                <div class="col-md-6">
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                <div class="col-8">
+                  <%= response_field.range_field :answer, min:0, max:100, class:"slider-1", id:"question#{index+1}", onclick:"showDiv()"%>
+                  <p>Value: <span id="question<%=index + 1%>score">50</span>%</p>
                 </div>
+                <div class="col-2">
+                  <p class="card-text">100%</p>
+                </div>
+              </div>
             </div>
+            <% end %>
+          </div>
+          <% end %>
         </div>
-    </div>
+      </div>
 
-    <div class="d-flex justify-content-center">
-        <%= form.submit "Show my type", class:"btn btn-primary", id:"calculate-btn"%>
     </div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </div>
+        <div class="col-md-6">
+          <a class="carousel-control-next" href="#carouselExampleControls" onclick="showPrevArrow()" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <% end %>
+  <div class="d-flex justify-content-center">
+    <%= form.submit "Show my type", class:"btn btn-primary", id:"calculate-btn"%>
+  </div>
+
+  <% end %>
 </div>
 
 
 <script>
-    const element = document.querySelector("#carousel-indicator");
-    element.classList.add("active");
+  const element = document.querySelector("#carousel-indicator");
+  element.classList.add("active");
+
+  //   document.querySelector('.carousel-indicators :first-child').classList.add('active');
+  document.querySelector('.carousel-inner :first-child').classList.add('active');
 
 
-    document.querySelector('.carousel-indicators :first-child').classList.add('active');
-    document.querySelector('.carousel-inner :first-child').classList.add('active');
+  var sliders = document.getElementsByClassName("slider-1");
+  for (var i = 0; i < (sliders.length); i++) {
+    sliders[i].addEventListener('input', function() {
+      document.getElementById(this.getAttribute('id') + 'score').innerText = this.value;
+    });
+  }
 
 
-    var sliders = document.getElementsByClassName("slider-1");
-
-    for (var i = 0; i < (sliders.length); i++) {
-        sliders[i].addEventListener('input', function() {
-            document.getElementById(this.getAttribute('id') + 'score').innerText = this.value;
-        });
+  //// show submit button when user gets to the final question /////
+  function showDiv() {
+    const id = document.getElementById("question<%=Question.last.id%>");
+    if (id.offsetWidth > 0 && id.offsetHeight > 0) {
+      document.getElementById('calculate-btn').style.opacity = "1";
     }
+  }
 
+  const first_question = document.querySelector(".carousel-inner :first-child");
 
+  function showPrevArrow() {
+    document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
+    // if (first_question.classList.contains('active')) {
+    //   document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
+    // } else {
+    //   document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
+    // }
+    console.log("hello world");
+  }
 
-    function showDiv() {
-        const id = document.getElementById("question<%=Question.last.id%>");
-        if (id.offsetWidth > 0 && id.offsetHeight > 0) {
-            document.getElementById('calculate-btn').style.opacity = "1";
-        }
-    }
+  //   document.onclick = function showPrevArrow() {
+  //     if (first_question.classList.contains('active')) {
+  //       document.getElementsByClassName('carousel-control-prev')[0].style.display = "none";
+  //     } else {
+  //       document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
+  //     }
+  //   }
+  //   if first_question.classList.contains('active'){
+  //     document.getElementsByClassName('carousel-control-prev')[0].style.display = "none";
+  //   } else{
+  //     document.getElementsByClassName('carousel-control-prev')[0].style.display = "block";
+  //   }
 </script>

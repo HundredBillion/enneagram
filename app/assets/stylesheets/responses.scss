@@ -65,6 +65,9 @@
     height: 40px;
     background-color: #db8f00;
   }
+  a.carousel-control-prev{
+    display:none;
+  }
   .carousel-indicators li{
     background-color: #000;
     margin-right: 0;
