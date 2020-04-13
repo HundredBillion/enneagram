@@ -47,13 +47,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <a class="carousel-control-prev" href="#carouselExampleControls" onclick="setTimeout(showArrowBtn, 645)" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
           </a>
         </div>
         <div class="col-md-6">
-          <a class="carousel-control-next" href="#carouselExampleControls" onclick="showPrevArrow()" role="button" data-slide="next">
+          <a class="carousel-control-next" href="#carouselExampleControls" onclick="setTimeout(showArrowBtn, 645)" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
@@ -74,7 +74,7 @@
   const element = document.querySelector("#carousel-indicator");
   element.classList.add("active");
 
-  //   document.querySelector('.carousel-indicators :first-child').classList.add('active');
+  // document.querySelector('.carousel-indicators :first-child').classList.add('active');
   document.querySelector('.carousel-inner :first-child').classList.add('active');
 
 
@@ -92,30 +92,21 @@
     if (id.offsetWidth > 0 && id.offsetHeight > 0) {
       document.getElementById('calculate-btn').style.opacity = "1";
     }
+    document.getElementsByClassName('carousel-control-next')[0].style.display = "none";
   }
 
-  const first_question = document.querySelector(".carousel-inner :first-child");
 
-  function showPrevArrow() {
-    document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
-    // if (first_question.classList.contains('active')) {
-    //   document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
-    // } else {
-    //   document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
-    // }
-    console.log("hello world");
+  function showArrowBtn() {
+    //show prev arrow when user has moved on from question 1.
+
+    const first_question = document.querySelector(".carousel-inner :first-child");
+
+    if (first_question.classList.contains('active')) {
+      document.getElementsByClassName('carousel-control-prev')[0].style.display = "none";
+    } else {
+      document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
+    }
+    document.getElementsByClassName('carousel-control-next')[0].style.display = "flex";
+
   }
-
-  //   document.onclick = function showPrevArrow() {
-  //     if (first_question.classList.contains('active')) {
-  //       document.getElementsByClassName('carousel-control-prev')[0].style.display = "none";
-  //     } else {
-  //       document.getElementsByClassName('carousel-control-prev')[0].style.display = "flex";
-  //     }
-  //   }
-  //   if first_question.classList.contains('active'){
-  //     document.getElementsByClassName('carousel-control-prev')[0].style.display = "none";
-  //   } else{
-  //     document.getElementsByClassName('carousel-control-prev')[0].style.display = "block";
-  //   }
 </script>
