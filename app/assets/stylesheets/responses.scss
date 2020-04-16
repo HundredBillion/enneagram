@@ -2,20 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .enneagram-test{
+  color:#333;
   font-family: 'Bebas Neue', cursive;
   .card-text {
-    font-size: 1rem;
-    letter-spacing: 4px;
+    font-size:32px;
+    padding-bottom:2rem;
   }
   .slider {
     width:40%;
   }
   
-  h4{
-    letter-spacing: 4px;
+  h2{
+    letter-spacing: 3px;
     // width: 60%;
     margin:auto;
-    width: 60%;
+    width: 90%;
+    font-size:64px;
+    padding-bottom:1rem;
+  }
+  .percent-value{
+    color:#333;
+    font-size:19px;
+    margin-bottom:2rem;
   }
 
   #calculate-btn {
@@ -33,6 +41,7 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    margin-bottom:2rem;
   }
   
   .slider-1:hover {
@@ -57,9 +66,9 @@
     border-radius: 50%;
   }
 
-  .carousel-row{
-    height:300px;
-  }
+  // .carousel-row{
+  //   height:300px;
+  // }
   a.carousel-control-next,
   a.carousel-control-prev{
     height: 40px;
@@ -87,11 +96,22 @@
   }
 
 }
-
-@media screen and (max-width: 800px){
-  .enneagram-test .card-text {
-    letter-spacing: 1px;
-    font-size: .88rem;
-  } 
+.scroll-arrows{
+  margin-top:3rem;
 }
+
+// @media (max-width: 800px){
+//   .enneagram-test{
+//     .card-text{
+//       letter-spacing: 1px;
+//       font-size: .88rem;
+//     }
+//     h2{
+//       font-size:72px;
+//       color:red;
+//     }
+//   } 
+// }
+
+
 

@@ -1,4 +1,4 @@
-<div class="enneagram-test">
+<div class="container enneagram-test remove-container">
   <%= form_with(model: response, local: true) do |form| %>
   <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
     <div class="row carousel-row align-items-center">
@@ -15,7 +15,7 @@
           <div class="carousel-item text-center card">
             <%= fields_for "response[]", response do |response_field| %>
             <div class="card-head text-center">
-              <h4 class="mt-4"><%=question.question %></h4>
+              <h2 class="mt-4"><%=question.question %></h2>
               <%= response_field.hidden_field :question_id, value: question.id %>
               <%= response_field.hidden_field :user_id %>
             </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-8">
                   <%= response_field.range_field :answer, min:0, max:100, class:"slider-1", id:"question#{index+1}", onclick:"showDiv()"%>
-                  <p>Value: <span id="question<%=index + 1%>score">50</span>%</p>
+                  <p class="percent-value">Value: <span id="question<%=index + 1%>score">50</span>%</p>
                 </div>
                 <div class="col-2">
                   <p class="card-text">100%</p>
@@ -45,7 +45,7 @@
     </div>
     <br>
     <div class="container">
-      <div class="row">
+      <div class="row scroll-arrows">
         <div class="col-md-6">
           <a class="carousel-control-prev" href="#carouselExampleControls" onclick="setTimeout(showArrowBtn, 645)" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
