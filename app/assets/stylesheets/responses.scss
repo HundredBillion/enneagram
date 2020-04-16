@@ -105,18 +105,27 @@
   margin-top:3rem;
 }
 
-// @media (max-width: 800px){
-//   .enneagram-test{
-//     .card-text{
-//       letter-spacing: 1px;
-//       font-size: .88rem;
-//     }
-//     h2{
-//       font-size:72px;
-//       color:red;
-//     }
-//   } 
-// }
+@media screen and (max-width: 768px){
+  .enneagram-test{
+    .slider-1 {
+      -webkit-appearance: none;
+      height: 50px;
+    }
+
+    .slider-1::-webkit-slider-thumb {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .slider-1::-moz-range-thumb {
+      width: 50px;
+      height: 50px;
+    }
+    p.percent-text{
+      padding-top:1rem;
+    }
+  } 
+}
 
 
 
