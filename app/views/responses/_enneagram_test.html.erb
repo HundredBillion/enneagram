@@ -28,7 +28,7 @@
                   <p class="percent-text">0%</p>
                 </div>
                 <div class="col-8">
-                  <%= response_field.range_field :answer, min:0, max:100, class:"slider-1", id:"question#{index+1}", onclick:"showDiv()"%>
+                  <%= response_field.range_field :answer, min:0, max:100, class:"slider-1", id:"question#{index+1}"%>
                   <p class="percent-value">Value: <span id="question<%=index + 1%>score">50</span>%</p>
                 </div>
                 <div class="col-2 px-0">
@@ -88,12 +88,13 @@
   //// show submit button when user gets to the final question /////
   const last_question = document.getElementById("question<%=Question.last.id%>");
   const first_question = document.querySelector(".carousel-inner :first-child");
-  
-  function showDiv() {
-    if (last_question.offsetWidth > 0 && last_question.offsetHeight > 0) {
-      document.getElementById('calculate-btn').style.opacity = "1";
-    }
-  }
+
+  // function showDiv() {
+  //   const last_question = document.getElementById("question<%=Question.last.id%>");
+  //   if (last_question.offsetWidth > 0 && last_question.offsetHeight > 0) {
+  //     document.getElementById('calculate-btn').style.display = "block";
+  //   }
+  // }
 
 
   function showArrowBtn() {
@@ -106,6 +107,7 @@
     //hide next arrow when user is on last question.
     if (last_question.offsetWidth > 0 && last_question.offsetHeight > 0) {
       document.getElementsByClassName('carousel-control-next')[0].style.display = "none";
+      document.getElementById('calculate-btn').style.opacity = "1";
     } else {
       document.getElementsByClassName('carousel-control-next')[0].style.display = "flex";
     }
