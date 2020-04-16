@@ -1,4 +1,4 @@
-<div class="container enneagram-test remove-container">
+<div class="enneagram-test remove-container">
   <%= form_with(model: response, local: true) do |form| %>
   <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
     <div class="row carousel-row align-items-center">
@@ -27,7 +27,7 @@
                 <div class="col-2 px-0">
                   <p class="percent-text">0%</p>
                 </div>
-                <div class="col-8">
+                <div class="col-8 remove-padding-left">
                   <%= response_field.range_field :answer, min:0, max:100, class:"slider-1", id:"question#{index+1}"%>
                   <p class="percent-value">Value: <span id="question<%=index + 1%>score">50</span>%</p>
                 </div>

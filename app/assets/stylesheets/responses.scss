@@ -121,9 +121,15 @@
       width: 50px;
       height: 50px;
     }
+    h2{
+      font-size:44px;
+    }
     p.percent-text{
       padding-top:1rem;
       font-size:18px;
+    }
+    .remove-padding-left{
+      padding-left:0;
     }
   } 
 }
