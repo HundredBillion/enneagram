@@ -69,6 +69,6 @@ class EnneagramNumbersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enneagram_number_params
-      params.require(:enneagram_number).permit(:enneagram_number)
+      params.require(:enneagram_number).permit(:enneagram_number,:description,:core_belief,:core_need,:core_pattern)
     end
 end

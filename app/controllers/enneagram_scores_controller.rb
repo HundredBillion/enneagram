@@ -9,7 +9,6 @@ class EnneagramScoresController < ApplicationController
       # @enneagram_scores<<EnneagramScore.where(user_id:(Response.where(user_id:current_user))).enneagram_score(number)
       @enneagram_scores << 
           (Response.where(user_id:current_user, question_id:(Question.where(enneagram_number_id:number)))).map{|r| r.answer * r.question.number_multiplier}.sum
-      
     end
 
     ## This instance variable is not good because it doesn't take into account that there may be an uneven number of enneagram
@@ -22,7 +21,12 @@ class EnneagramScoresController < ApplicationController
     end
     
     @enneagram_percentages = @enneagram_scores.zip(@enneagram_number_divisor).map{|x,y| ((x/y.to_f)*100).floor(2) }
-
+    
+    @my_type = @enneagram_percentages.each_index.sort_by{|i| -@enneagram_percentages[i]}[0] + 1
+    @description = EnneagramNumber.where(id:@my_type).first.description
+    @core_need = EnneagramNumber.where(id:@my_type).first.core_need
+    @core_belief = EnneagramNumber.where(id:@my_type).first.core_belief
+    @core_pattern = EnneagramNumber.where(id:@my_type).first.core_pattern
   end
 
 

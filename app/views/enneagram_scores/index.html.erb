@@ -1,19 +1,24 @@
+<h1 class="text-center">Your Enneagram Type: <%= @my_type %> </h1>
+<h2 class="text-center">Type <%=@my_type%></h2>
+<h3 class="text-center"><%=@description%></h3>
+<h3 class="text-center">Core Need</h3>
+<p class="text-center"><%=@core_need%></p>
+<h3 class="text-center">Core Belief</h3>
+<p class="text-center"><%=@core_belief%></p>
+<h3 class="text-center">Core Pattern</h3>
+<p class="text-center"><%=@core_pattern%></p>
 
- <%# binding.pry %> 
-
-<h1 class= "text-center">Your Enneagram Type: <%= @enneagram_percentages.each_index.sort_by{|i| -@enneagram_percentages[i]}[0] + 1 %> </h1>
+<%#= binding.pry%>
 
 
-
-
-<br/>
+<br />
 <%
 =begin%>
- <% @enneagram_percentages.each_with_index do |value, index| %>
-  Enneagram <%=index +1 %>:
-  <%= (value) %> %
-  <br/>
-<% end %> 
+<% @enneagram_percentages.each_with_index do |value, index| %>
+Enneagram <%=index +1 %>:
+<%= (value) %> %
+<br />
+<% end %>
 <%
 =end%>
 
@@ -21,21 +26,21 @@
 
 <%
 =begin%>
- <p>
- Your top enneagram score is:
+<p>
+  Your top enneagram score is:
   <%= @enneagram_scores.each_index.sort_by{|i| -@enneagram_scores[i]}[0] + 1 %>
 </p>
 
 
 <% @enneagram_scores.each_with_index do |value, index| %>
-   Enneagram <%=index + 1 %>:
-   <%=((value/@enneagram_test_divisor)*100).floor(2)%>%
-   <br/>
-<%end%> 
+Enneagram <%=index + 1 %>:
+<%=((value/@enneagram_test_divisor)*100).floor(2)%>%
+<br />
+<%end%>
 <%
 =end%>
 <br>
 <h4 class="text-center">Want to learn more about what this means?</h3>
-<br>
-<h5 class="text-center">Check out our website for coaching sessions and see how the Enneagram can improve your personal journey toward wholeness</h5>
-<%= link_to "Home", root_path, class:'btn btn primary' %>
+  <br>
+  <h5 class="text-center">Check out our website for coaching sessions and see how the Enneagram can improve your personal journey toward wholeness</h5>
+  <%= link_to "Home", root_path, class:'btn btn primary' %>

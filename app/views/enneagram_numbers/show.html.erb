@@ -4,6 +4,22 @@
   <strong>Enneagram number:</strong>
   <%= @enneagram_number.enneagram_number %>
 </p>
+<p>
+  <strong>Description:</strong>
+  <%= @enneagram_number.description %>
+</p>
+<p>
+  <strong>Core Belief:</strong>
+  <%= @enneagram_number.core_belief %>
+</p>
+<p>
+  <strong>Core Need:</strong>
+  <%= @enneagram_number.core_need %>
+</p>
+<p>
+  <strong>Core Pattern:</strong>
+  <%= @enneagram_number.core_pattern %>
+</p>
 
 <%= link_to 'Edit', edit_enneagram_number_path(@enneagram_number) %> |
 <%= link_to 'Back', enneagram_numbers_path %>

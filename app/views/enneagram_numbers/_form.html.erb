@@ -1,22 +1,39 @@
 <%= form_with(model: enneagram_number, local: true) do |form| %>
-  <% if enneagram_number.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(enneagram_number.errors.count, "error") %> prohibited this enneagram_number from being saved:</h2>
+<% if enneagram_number.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(enneagram_number.errors.count, "error") %> prohibited this enneagram_number from being saved:</h2>
 
-      <ul>
-        <% enneagram_number.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% enneagram_number.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :enneagram_number %>
-    <%= form.number_field :enneagram_number %>
-  </div>
+<div class="field">
+  <%= form.label :enneagram_number %>
+  <%= form.number_field :enneagram_number %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="field">
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+</div>
+<div class="field">
+  <%= form.label :core_need %>
+  <%= form.text_field :core_need %>
+</div>
+<div class="field">
+  <%= form.label :core_belief %>
+  <%= form.text_field :core_belief %>
+</div>
+<div class="field">
+  <%= form.label :core_pattern %>
+  <%= form.text_area :core_pattern %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>

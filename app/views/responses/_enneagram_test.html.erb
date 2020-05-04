@@ -1,16 +1,18 @@
+<h1 class="text-center">Enneagramtesting.org</h1>
 <div class="enneagram-test remove-container">
   <%= form_with(model: response, local: true) do |form| %>
   <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
     <div class="row carousel-row align-items-center">
       <div class="col-md-12">
+
         <!-- questionair completeness indictor -->
         <ol class="carousel-indicators">
           <% @questions.each_with_index do |question, index| %>
           <li data-target="#carouselExampleControls" data-slide-to="<%=index%>" id="carousel-indicator"></li>
           <%end%>
         </ol>
-        <div class="carousel-inner">
 
+        <div class="carousel-inner">
           <% @questions.each_with_index do |question, index| %>
           <div class="carousel-item text-center card">
             <%= fields_for "response[]", response do |response_field| %>
