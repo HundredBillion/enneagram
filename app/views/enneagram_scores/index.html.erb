@@ -1,46 +1,30 @@
-<h1 class="text-center">Your Enneagram Type: <%= @my_type %> </h1>
-<h2 class="text-center">Type <%=@my_type%></h2>
-<h3 class="text-center"><%=@description%></h3>
-<h3 class="text-center">Core Need</h3>
-<p class="text-center"><%=@core_need%></p>
-<h3 class="text-center">Core Belief</h3>
-<p class="text-center"><%=@core_belief%></p>
-<h3 class="text-center">Core Pattern</h3>
-<p class="text-center"><%=@core_pattern%></p>
+<div class="font">
+  <h1 class="text-center">Your Enneagram Type: <%= @my_type %> </h1>
+  <h2 class="text-center">Type <%=@my_type%></h2>
+  <h3 class="text-center"><%=@description%></h3>
 
-<%#= binding.pry%>
+  <div class="grid">
+    <div class="box">
+      <h3 class="text-center title">Core Need</h3>
+      <p class="text-center p-text"><%=@core_need%></p>
+    </div>
 
+    <div class="box">
+      <h3 class="text-center title">Core Belief</h3>
+      <p class="text-center p-text"><%=@core_belief%></p>
+    </div>
 
-<br />
-<%
-=begin%>
-<% @enneagram_percentages.each_with_index do |value, index| %>
-Enneagram <%=index +1 %>:
-<%= (value) %> %
-<br />
-<% end %>
-<%
-=end%>
-
-
-
-<%
-=begin%>
-<p>
-  Your top enneagram score is:
-  <%= @enneagram_scores.each_index.sort_by{|i| -@enneagram_scores[i]}[0] + 1 %>
-</p>
-
-
-<% @enneagram_scores.each_with_index do |value, index| %>
-Enneagram <%=index + 1 %>:
-<%=((value/@enneagram_test_divisor)*100).floor(2)%>%
-<br />
-<%end%>
-<%
-=end%>
-<br>
-<h4 class="text-center">Want to learn more about what this means?</h3>
+    <div class="box">
+      <h3 class="text-center title">Core Pattern</h3>
+      <p class="text-center p-text"><%=@core_pattern%></p>
+    </div>
+  </div>
   <br>
-  <h5 class="text-center">Check out our website for coaching sessions and see how the Enneagram can improve your personal journey toward wholeness</h5>
-  <%= link_to "Home", root_path, class:'btn btn primary' %>
+
+  <h2 class="text-center">Want to find out more?</h2>
+  <h3 class="text-center">Head over to <a href="https://www.theartofgrowth.org/">TheArtOfGrowth.Org</a> </h3>
+</div>
+
+
+
+<%= link_to "Home", root_path, class:'btn btn primary' %>
