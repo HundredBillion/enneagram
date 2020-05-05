@@ -108,6 +108,9 @@ h1, .enneagram-test{
 }
 
 @media screen and (max-width: 768px){
+  h1{
+    display: none;
+  }
   .enneagram-test{
     .slider-1 {
       -webkit-appearance: none;
@@ -125,11 +128,17 @@ h1, .enneagram-test{
       height: 75px;
     }
     h2{
-      font-size:44px;
+      font-size:35px;
+    }
+    .card-text {
+      font-size:22px;
+      padding-bottom:1rem;
+      line-height: 1.75rem;
+      touch-action: none;
     }
     p.percent-text{
       padding-top:1rem;
-      font-size:15px;
+      font-size:12px;
     }
     .remove-padding-left-right{
       padding-left:0;
