@@ -29,7 +29,7 @@
                 <div class="col-2 px-0">
                   <p class="percent-text">0%</p>
                 </div>
-                <div class="col-8 remove-padding-left">
+                <div class="col-8 remove-padding-left-right">
                   <%= response_field.range_field :answer, min:0, max:100, class:"slider-1", id:"question#{index+1}"%>
                   <p class="percent-value">Value: <span id="question<%=index + 1%>score">50</span>%</p>
                 </div>
