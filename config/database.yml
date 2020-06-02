@@ -85,7 +85,7 @@ test:
 #   password: <%= ENV['ENNEAGRAM_DATABASE_PASSWORD'] %>
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: latin-1
   # url: <%= ENV['DATABASE_URL'] %>
   database: <%= ENV['RDS_DB_NAME'] %>
   username: <%= ENV['RDS_USERNAME'] %>
