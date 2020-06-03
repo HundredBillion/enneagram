@@ -84,6 +84,7 @@ test:
 #   username: enneagram
 #   password: <%= ENV['ENNEAGRAM_DATABASE_PASSWORD'] %>
 production:
+  <<: *default
   database: <%= ENV['RDS_DB_NAME'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
   port: <%= ENV['RDS_PORT'] %>
