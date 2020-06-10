@@ -7,7 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("enneagram_test/enneagram_test.js")
+
+require("enneagram_test")
 
 import "bootstrap"
 import "../stylesheets/application"
