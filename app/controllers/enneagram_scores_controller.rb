@@ -23,12 +23,24 @@ class EnneagramScoresController < ApplicationController
     @enneagram_percentages = @enneagram_scores.zip(@enneagram_number_divisor).map{|x,y| ((x/y.to_f)*100).floor(2) }
     
     @my_type = @enneagram_percentages.each_index.sort_by{|i| -@enneagram_percentages[i]}[0] + 1
+   
     @description = EnneagramNumber.where(id:@my_type).first.description
     @core_need = EnneagramNumber.where(id:@my_type).first.core_need
     @core_belief = EnneagramNumber.where(id:@my_type).first.core_belief
     @core_pattern = EnneagramNumber.where(id:@my_type).first.core_pattern
-  end
 
+    @enneagram_one_score = @enneagram_percentages[0].round
+    @enneagram_two_score =@enneagram_percentages[1].round
+    @enneagram_three_score=@enneagram_percentages[2].round
+    @enneagram_four_score=@enneagram_percentages[3].round
+    @enneagram_five_score=@enneagram_percentages[4].round
+    @enneagram_six_score=@enneagram_percentages[5].round
+    @enneagram_seven_score=@enneagram_percentages[6].round
+    @enneagram_eight_score=@enneagram_percentages[7].round
+    @enneagram_nine_score=@enneagram_percentages[8].round
+
+
+  end 
 
   def show
   end
