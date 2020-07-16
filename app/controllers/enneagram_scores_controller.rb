@@ -38,6 +38,9 @@ class EnneagramScoresController < ApplicationController
     @enneagram_seven_score=@enneagram_percentages[6].round
     @enneagram_eight_score=@enneagram_percentages[7].round
     @enneagram_nine_score=@enneagram_percentages[8].round
+    
+
+    
 
 
   end 
