@@ -56,3 +56,6 @@ gem 'devise'
 gem 'pry', '~> 0.12.2'
 
 gem 'stripe'
+
+gem 'solargraph', group: :development
+

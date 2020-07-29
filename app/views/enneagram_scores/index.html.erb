@@ -21,77 +21,19 @@
   </div>
   <br>
 
-  <h2>Here's how your other scores stack up</h2>
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_one_score%>%;">
-      <div>1</div>
-      <div><%=@enneagram_one_score%>%</div>
-    </h4>
-  </div>
-
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_two_score%>%;">
-      <div>2</div>
-      <div><%=@enneagram_two_score%>%</div>
-    </h4>
-  </div>
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_three_score%>%;">
-      <div>3</div>
-      <div><%=@enneagram_three_score%>%</div>
-    </h4>
-  </div>
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_four_score%>%;">
-      <div>4</div>
-      <div><%=@enneagram_four_score%>%</div>
-    </h4>
-  </div>
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_five_score%>%;">
-      <div>5</div>
-      <div><%=@enneagram_five_score%>%</div>
-    </h4>
-  </div>
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_six_score%>%;">
-      <div>6</div>
-      <div><%=@enneagram_six_score%>%</div>
-    </h4>
-  </div>
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_seven_score%>%;">
-      <div>7</div>
-      <div><%=@enneagram_seven_score%>%</div>
-    </h4>
-  </div>
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_eight_score%>%;">
-      <div>8</div>
-      <div><%=@enneagram_eight_score%>%</div>
-    </h4>
-  </div>
-  <div class="personality-bar">
-    <h4 class="enneagram-bar" style="width: <%=@enneagram_nine_score%>%;">
-      <div>9</div>
-      <div><%=@enneagram_nine_score%>%</div>
-    </h4>
-  </div>
+  <h2>Probability of you identifiying with the following Enneagram Number</h2>
+  <% @sorted_enneagram_percentages.zip(@sorted_enneagram_numbers).each do |enneagram_percent, enneagram_number| %>    
+    <div class="personality-bar">
+      <div class="enneagram-bar" style="width: <%=enneagram_percent%>%;">
+        <h5>Type <%= enneagram_number %></h5>
+        <h4><%= enneagram_percent %>%</h4>
+      </div>
+    </div>
+  <% end %>
 
 
 
-
-  <%
-=begin%>
-  <%=binding.pry%>
-  <%
-=end%>
 
   <h2 class="text-center">Want to find out more?</h2>
   <h3 class="text-center">Head over to <a href="https://www.theartofgrowth.org/">TheArtOfGrowth.Org</a> </h3>
 </div>
-
-
-
-
-<%#= link_to "Home", root_path, class:'btn btn primary' %>

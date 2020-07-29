@@ -29,6 +29,10 @@ class EnneagramScoresController < ApplicationController
     @core_belief = EnneagramNumber.where(id:@my_type).first.core_belief
     @core_pattern = EnneagramNumber.where(id:@my_type).first.core_pattern
 
+    @sorted_enneagram_numbers = (@enneagram_percentages.each_index.sort_by{|x| -@enneagram_percentages[x]}).map{|x| x+1}
+    @sorted_enneagram_percentages = (@enneagram_percentages.sort_by{|x| -x}).map{|x| x.round}
+
+    
     @enneagram_one_score = @enneagram_percentages[0].round
     @enneagram_two_score =@enneagram_percentages[1].round
     @enneagram_three_score=@enneagram_percentages[2].round
@@ -38,7 +42,6 @@ class EnneagramScoresController < ApplicationController
     @enneagram_seven_score=@enneagram_percentages[6].round
     @enneagram_eight_score=@enneagram_percentages[7].round
     @enneagram_nine_score=@enneagram_percentages[8].round
-    
 
     
 

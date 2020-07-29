@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       delete 'remove_all'
     end
   end
+  get 'test' => 'responses#new'
 
   resources :questions
   devise_for :users

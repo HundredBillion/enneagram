@@ -7,6 +7,6 @@ class PagesController < ApplicationController
 
   private
     def check_signed_in
-      redirect_to new_response_path if signed_in?
+      redirect_to enneagram_test_path if signed_in?
     end
 end
