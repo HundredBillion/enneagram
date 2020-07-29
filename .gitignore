@@ -27,7 +27,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
+/config/initializers
 /public/packs
 /public/packs-test
 /node_modules
@@ -39,3 +39,8 @@ yarn-debug.log*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+/config/credentials/development.key
+/config/secrets.yml
+
+/config/credentials/production.key
