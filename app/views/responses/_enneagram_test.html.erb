@@ -72,7 +72,47 @@
 </div>
 
 
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+<button style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em" id="checkout-button-price_1HAIIGJ4Lolw7kkzMXTGTZC6" role="link" type="button">
+  Checkout
+</button>
+
+<div id="error-message"></div>
+
 <script>
+  (function() {
+    var stripe = Stripe('pk_test_51GqMw1J4Lolw7kkzqxNvR8XMaru532S6CUqohCsttI9GWR9avvcc2Y5BW7wb9s4SPGNq6auKb3NHcj6bTGzyKh2z00V0DRYkzz');
+
+    var checkoutButton = document.getElementById('checkout-button-price_1HAIIGJ4Lolw7kkzMXTGTZC6');
+    checkoutButton.addEventListener('click', function() {
+      // When the customer clicks on the button, redirect
+      // them to Checkout.
+      stripe.redirectToCheckout({
+          lineItems: [{
+            price: 'price_1HAIIGJ4Lolw7kkzMXTGTZC6',
+            quantity: 1
+          }],
+          mode: 'payment',
+          // Do not rely on the redirect to the successUrl for fulfilling
+          // purchases, customers may not always reach the success_url after
+          // a successful payment.
+          // Instead use one of the strategies described in
+          // https://stripe.com/docs/payments/checkout/fulfillment
+          successUrl: 'http://localhost:3000/enneagram_scores',
+          cancelUrl: 'http://localhost:3000/enneagram_scores',
+        })
+        .then(function(result) {
+          if (result.error) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, display the localized error message to your customer.
+            var displayError = document.getElementById('error-message');
+            displayError.textContent = result.error.message;
+          }
+        });
+    });
+  })();
+
+
   const element = document.querySelector("#carousel-indicator");
   element.classList.add("active");
 
@@ -90,13 +130,6 @@
   //// show submit button when user gets to the final question /////
   const last_question = document.getElementById("question<%=Question.last.id%>");
   const first_question = document.querySelector(".carousel-inner :first-child");
-
-  // function showDiv() {
-  //   const last_question = document.getElementById("question<%=Question.last.id%>");
-  //   if (last_question.offsetWidth > 0 && last_question.offsetHeight > 0) {
-  //     document.getElementById('calculate-btn').style.display = "block";
-  //   }
-  // }
 
 
   function showArrowBtn() {
