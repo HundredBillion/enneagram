@@ -6,14 +6,9 @@ class EnneagramScoresController < ApplicationController
     @user = current_user
     @enneagram_scores =[]
     (1..9).each do |number|
-      # @enneagram_scores<<EnneagramScore.where(user_id:(Response.where(user_id:current_user))).enneagram_score(number)
-      @enneagram_scores << 
+      @enneagram_scores <<
           (Response.where(user_id:current_user, question_id:(Question.where(enneagram_number_id:number)))).map{|r| r.answer * r.question.number_multiplier}.sum
     end
-
-    ## This instance variable is not good because it doesn't take into account that there may be an uneven number of enneagram
-    ## questions for a particular number
-    @enneagram_test_divisor = @enneagram_scores.map(&:to_f).reduce(:+)
     
     @enneagram_number_divisor =[]
     (1..9).each do |number|
@@ -32,34 +27,12 @@ class EnneagramScoresController < ApplicationController
     @sorted_enneagram_numbers = (@enneagram_percentages.each_index.sort_by{|x| -@enneagram_percentages[x]}).map{|x| x+1}
     @sorted_enneagram_percentages = (@enneagram_percentages.sort_by{|x| -x}).map{|x| x.round}
 
-    
-    @enneagram_one_score = @enneagram_percentages[0].round
-    @enneagram_two_score =@enneagram_percentages[1].round
-    @enneagram_three_score=@enneagram_percentages[2].round
-    @enneagram_four_score=@enneagram_percentages[3].round
-    @enneagram_five_score=@enneagram_percentages[4].round
-    @enneagram_six_score=@enneagram_percentages[5].round
-    @enneagram_seven_score=@enneagram_percentages[6].round
-    @enneagram_eight_score=@enneagram_percentages[7].round
-    @enneagram_nine_score=@enneagram_percentages[8].round
-
-    
-
-
-  end 
-
-  def show
   end
 
 
   def new
     @enneagram_score = EnneagramScore.new
   end
-
-
-  def edit
-  end
-
 
   def create
     @enneagram_score = EnneagramScore.new(enneagram_score_params)
@@ -75,8 +48,6 @@ class EnneagramScoresController < ApplicationController
     end
   end
 
-  # PATCH/PUT /enneagram_scores/1
-  # PATCH/PUT /enneagram_scores/1.json
   def update
     respond_to do |format|
       if @enneagram_score.update(enneagram_score_params)
@@ -89,8 +60,6 @@ class EnneagramScoresController < ApplicationController
     end
   end
 
-  # DELETE /enneagram_scores/1
-  # DELETE /enneagram_scores/1.json
   def destroy
     @enneagram_score.destroy
     respond_to do |format|
