@@ -21,12 +21,14 @@
   </div>
   <br>
 
-  <h2>Probability of you identifiying with the following Enneagram Number</h2>
+  <h2>Here is an indicator of all your types by progress bar</h2>
+  <p class="p-text">The higher the bar, the more likely you will match that particular Enneagram Type</p>
+  
   <% @sorted_enneagram_percentages.zip(@sorted_enneagram_numbers).each do |enneagram_percent, enneagram_number| %>    
     <div class="personality-bar">
       <div class="enneagram-bar" style="width: <%=enneagram_percent%>%;">
         <h5>Type <%= enneagram_number %></h5>
-        <h4><%= enneagram_percent %>%</h4>
+        <!--<h4><%#= enneagram_percent %>%</h4>-->
       </div>
     </div>
   <% end %>

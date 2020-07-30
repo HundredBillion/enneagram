@@ -64,53 +64,14 @@
     </div>
   </div>
 
-  <div id="calculate-btn" class="d-flex justify-content-center">
-    <%= form.submit "Show my type", class:"btn btn-primary show-type-btn", id:"checkout-button-price_1HAIIGJ4Lolw7kkzMXTGTZC6"%>
+  <div class="d-flex justify-content-center">
+    <%= form.submit "Show my type", class:"btn btn-primary", id:"calculate-btn"%>
   </div>
-  <div id="error-message"></div>
   <% end %>
 </div>
 
 
-<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
-
-
-
-
-
-
 <script>
-  (function() {
-    var stripe = Stripe('pk_test_51GqMw1J4Lolw7kkzqxNvR8XMaru532S6CUqohCsttI9GWR9avvcc2Y5BW7wb9s4SPGNq6auKb3NHcj6bTGzyKh2z00V0DRYkzz');
-
-    var checkoutButton = document.getElementById('checkout-button-price_1HAIIGJ4Lolw7kkzMXTGTZC6');
-    checkoutButton.addEventListener('click', function() {
-      // When the customer clicks on the button, redirect
-      // them to Checkout.
-      stripe.redirectToCheckout({
-          lineItems: [{
-            price: 'price_1HAIIGJ4Lolw7kkzMXTGTZC6',
-            quantity: 1
-          }],
-          mode: 'payment',
-          // Do not rely on the redirect to the successUrl for fulfilling
-          // purchases, customers may not always reach the success_url after
-          // a successful payment.
-          // Instead use one of the strategies described in
-          // https://stripe.com/docs/payments/checkout/fulfillment
-          successUrl: 'http://localhost:3000/enneagram_scores',
-          cancelUrl: 'http://localhost:3000/enneagram_scores',
-        })
-        .then(function(result) {
-          if (result.error) {
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, display the localized error message to your customer.
-            var displayError = document.getElementById('error-message');
-            displayError.textContent = result.error.message;
-          }
-        });
-    });
-  })();
 
 
   const element = document.querySelector("#carousel-indicator");
@@ -146,5 +107,9 @@
     } else {
       document.getElementsByClassName('carousel-control-next')[0].style.display = "flex";
     }
+  }
+
+  function hide() {
+    document.getElementById("calculate-btn").style.visibility = "hidden";
   }
 </script>
