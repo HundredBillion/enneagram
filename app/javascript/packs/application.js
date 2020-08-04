@@ -9,6 +9,7 @@ require("@rails/activestorage").start();
 require("channels");
 
 require("packs/enneagram_test");
+require(" checkouts.js");
 
 import "bootstrap";
 import "stylesheets/application";
