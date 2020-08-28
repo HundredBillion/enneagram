@@ -1,4 +1,4 @@
-alert("hello");
+
 document.addEventListener('turbolinks:load', function () {
   var card, elements, form, stripe, stripeTokenHandler, stripe_public_key, style;
   stripe_public_key = document.querySelector('meta[name="stripe-public-key"]').getAttribute('content');
