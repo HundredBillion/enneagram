@@ -1,4 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
-@import "settings.scss";
 
 
+a:hover{
+  text-decoration: none;
+}
+
+@media (min-width:576px) and (max-width:991px){
+  .remove-container{
+    max-width:100%;
+  }
+}

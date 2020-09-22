@@ -1,26 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <%= link_to image_tag('the-art-of-growth-logo.png', alt:'the art of growth logo'), "https://theartofgrowth.org", class:"logo" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto p-2 ">
-        <% if user_signed_in?%>
-          <li class="nav-item ">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.full_name%>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <div class="dropdown-divider"></div>
-              <%= link_to "Edit Profile", edit_user_registration_path, class:"dropdown-item" %>
-              <%= link_to "Log Out", destroy_user_session_path, class:"dropdown-item", method: :delete %>
-            </div>
-          </li>
-        <%end%>
-
+<nav class="d-flex justify-content-between align-items-center">
+  <div class="logo">
+    <%= link_to image_tag('the-art-of-growth-logo.png', alt:'the art of growth logo'), "https://theartofgrowth.org" %>
+  </div>
+  <%if user_signed_in? %>
+    <div class="dropdown ">
+      <button class="btn dropdown-toggle name" type="button" data-toggle="dropdown"><%= current_user.full_name%>
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu dropdown-menu-right mt-2">
+        <li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
+        <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
-  </div>
+  <%end%>
 </nav>
+

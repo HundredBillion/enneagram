@@ -1,0 +1,29 @@
+nav{
+  background-color: #f8f9fa;
+  padding: 1rem 4rem;
+}
+.name{
+  cursor: pointer;
+}
+.name:hover{
+  transform: scale(1.05);
+  transition: transform .25s ease;
+}
+ul.dropdown-menu.dropdown-menu-right.mt-2.show{
+  padding: .5rem;
+}
+.dropdown-menu li{
+  padding: 1rem;
+}
+
+.dropdown-menu li:hover{
+  background-color: rgba(251,154,58,0.9);
+  transform: scale(1.025);
+  transition: transform .25s ease;
+}
+
+@media (max-width:576px){
+  nav{
+    padding:1rem;
+  }
+}
