@@ -1,45 +1,29 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-7 col-sm-10">
     <h2>Enneagram Personality Assessment</h2>
   </div>
-</div>
-
-<br>
-<br>
-
-<input type="checkbox" id="coupon-code-icon">
-<label for="coupon-code-icon" class="display-block pointer" >
-  <div class="row">
-     <div class="cc-icon"></div>
-     <h4>Coupon Code?</h4>
-  </div>
- 
-
-</label>
-
-<div id="coupon-code-form" class="row" >
-  <form action="" class="col-md-8">
-    <input type="text" id="lname" placeholder="Enter Code Here">
-    <button class="btn btn-primary">Submit</button>
-  </form>
-</div>
-
-<hr/>
-<div class="row">
-  <div class="col-md-5">
-    <h3>Total</h3>
-  </div>
-  <div class="col-md-2">
+  <div class="col-md-1 col-sm-1">
     <h2>$10</h2>
   </div>
 </div>
-<br>
-<br>
 <div class="row">
-  <div class="col-md-6">
-    <h4>PAYMENT</h4>
+  <div class="col-md-8">
+    <form action="" class="form-inline">
+      <div class="form-group mr-3">
+        <input type="coupon-code" class="form-control" id="coupon-code" placeholder="Coupon Code?">
+      </div>
+      <%# <button type="submit" class="btn btn-primary coupon-code-btn">Apply</button> %>
+      <button onclick="location.href='www.google.com'">Click Me</button>
+    </form>
+    <br>
   </div>
 </div>
+
+
+
+
+
+
 <form>
   <div class="form-group">
     <div class="row">
@@ -103,32 +87,4 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<div class="row">
-  <div class="col-md-3">
-  </div>
-  <div class="col-md-6">
-    <!-- Strip form -->
-    <%= form_with url: checkouts_path, method: :post, id: 'payment-form' do |form| %>
 
-      <div class="form-row">
-        <label for="card-element">Credit or debit card</label>
-        <div id="card-element"></div>
-        <div id="card-errors" role="alert"></div>
-      </div>
-      <%= form.submit 'Subscribe', class: 'btn btn-primary' %>
-    <% end %>
-  </div>
- </div>
-
-
-
- <script>
-  var dropD = document.querySelector('#coupon-code-link');
-  var couponForm = document.querySelector('#coupon-code-form');
-
-  dropD.addEventListener('click', ()=> {
-    couponForm.style.maxHeight = "14rem";
-    couponForm.style.overflow = "auto";
-    couponForm.style.fontSize = "10rem";
-  });
- </script>

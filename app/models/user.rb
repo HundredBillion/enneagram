@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :responses
+  has_many :checkouts
   validates :full_name, presence: true, length: {maximum: 49}
 end

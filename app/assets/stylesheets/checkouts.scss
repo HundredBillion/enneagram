@@ -19,14 +19,44 @@
 .pointer{
   cursor: pointer;
 }
+.flex-row{
+  display: flex;
+  align-items: center;
+}
+.no-margin-bottom{
+  margin-bottom:0rem;
+}
+#cc-icon{
+  display: none;
+}
 .cc-icon{
-  display:block;
-  height: 15px;
-  width: 15px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
   background-color: #555;
   border-radius: 50%;
   margin-right:1rem;
+
 }
+.plus{
+  height: 2px;
+  width: 15px;
+  background-color: red;
+  position: relative;
+  display: block;
+}
+.plus:before{
+  content: "";
+  height: 2px;
+  width: 15px;
+  background-color: red;
+  position: absolute;
+  display: block;
+   transform: rotate(90deg);
+}
+
 .display-block{
   display: block;
 }

@@ -9,7 +9,7 @@ require("@rails/activestorage").start();
 require("channels");
 
 require("packs/enneagram_test");
-// require("checkouts.js");
+require("packs/checkouts");
 
 import "bootstrap";
 import "bootstrap/dist/js/bootstrap";
