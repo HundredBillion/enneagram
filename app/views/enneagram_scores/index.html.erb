@@ -1,23 +1,19 @@
 <div class="font">
   <h1 class="text-center">Your Enneagram Type: <%= @my_type %> </h1>
-  <h2 class="text-center">Type <%=@my_type%></h2>
-  <h3 class="text-center"><%=@description%></h3>
+  <h2 class="text-center">Type <%=@my_number.enneagram_number%></h2>
+  <h3 class="text-center"><%=@my_number.description%></h3>
 
   <div class="grid">
     <div class="box">
-      <h3 class="text-center title">Core Need</h3>
-      <p class="text-center p-text"><%=@core_need%></p>
+      <h3 class="text-center title">How The Type Meets Needs</h3>
+      <p class="text-center p-text"><%=@my_number.how_type_meets_needs%></p>
     </div>
 
     <div class="box">
-      <h3 class="text-center title">Core Belief</h3>
-      <p class="text-center p-text"><%=@core_belief%></p>
+      <h3 class="text-center title">Gifts</h3>
+      <p class="text-center p-text"><%=@my_number.gifts%></p>
     </div>
 
-    <div class="box">
-      <h3 class="text-center title">Core Pattern</h3>
-      <p class="text-center p-text"><%=@core_pattern%></p>
-    </div>
   </div>
   <br>
 

@@ -17,12 +17,13 @@ class EnneagramScoresController < ApplicationController
     
     @enneagram_percentages = @enneagram_scores.zip(@enneagram_number_divisor).map{|x,y| ((x/y.to_f)*100).floor(2) }
     
-    @my_type = @enneagram_percentages.each_index.sort_by{|i| -@enneagram_percentages[i]}[0] + 1
-   
-    @description = EnneagramNumber.where(id:@my_type).first.description
-    @core_need = EnneagramNumber.where(id:@my_type).first.core_need
-    @core_belief = EnneagramNumber.where(id:@my_type).first.core_belief
-    @core_pattern = EnneagramNumber.where(id:@my_type).first.core_pattern
+    my_type = @enneagram_percentages.each_index.sort_by{|i| -@enneagram_percentages[i]}[0] + 1
+    @my_number = EnneagramNumber.where(id:my_type).first
+
+    # @description = EnneagramNumber.where(id:@my_type).first.description
+    # @core_need = EnneagramNumber.where(id:@my_type).first.core_need
+    # @core_belief = EnneagramNumber.where(id:@my_type).first.core_belief
+    # @core_pattern = EnneagramNumber.where(id:@my_type).first.core_pattern
 
     @sorted_enneagram_numbers = (@enneagram_percentages.each_index.sort_by{|x| -@enneagram_percentages[x]}).map{|x| x+1}
     @sorted_enneagram_percentages = (@enneagram_percentages.sort_by{|x| -x}).map{|x| x.round}
