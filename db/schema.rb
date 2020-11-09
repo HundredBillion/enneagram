@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_163448) do
+ActiveRecord::Schema.define(version: 2020_11_09_173642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_163448) do
     t.string "core_need"
     t.string "core_belief"
     t.string "core_pattern"
+    t.string "how_type_meets_needs"
+    t.string "gifts"
   end
 
   create_table "enneagram_scores", force: :cascade do |t|

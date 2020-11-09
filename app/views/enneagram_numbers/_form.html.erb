@@ -21,6 +21,15 @@
   <%= form.text_field :description %>
 </div>
 <div class="field">
+  <%= form.label :how_type_meets_needs %>
+  <%= form.text_area :how_type_meets_needs %>
+</div>
+<div class="field">
+  <%= form.label :their_gifts %>
+  <%= form.text_area :gifts %>
+</div>
+
+<div class="field">
   <%= form.label :core_need %>
   <%= form.text_field :core_need %>
 </div>
@@ -32,6 +41,7 @@
   <%= form.label :core_pattern %>
   <%= form.text_area :core_pattern %>
 </div>
+
 
 <div class="actions">
   <%= form.submit %>
