@@ -44,3 +44,5 @@ yarn-debug.log*
 /config/secrets.yml
 
 /config/credentials/production.key
+
+/.DS_Store
