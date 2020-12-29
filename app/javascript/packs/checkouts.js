@@ -1,23 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
+  if ((document.querySelector("#coupon-code") && document.querySelector(".coupon-code-btn")) != null){
+
+
+    document.querySelector(".coupon-code-btn").addEventListener('click', () => {
+      console.log('hello click');
+    });
 
 
 
-  document.querySelector(".coupon-code-btn").addEventListener('click', () => {
-    console.log('hello click');
-  });
 
 
+    const coupon = document.querySelector("#coupon-code");
 
+    const button = document.querySelector(".coupon-code-btn");
 
-
-  const coupon = document.querySelector("#coupon-code");
-
-  const button = document.querySelector(".coupon-code-btn");
-
-  // button.addEventListener("click", () => {
-  //   console.log('hello');
-  // });
-
+    // button.addEventListener("click", () => {
+    //   console.log('hello');
+    // });
+  }
 })
 
 // document.addEventListener('turbolinks:load', function () {
